@@ -18,7 +18,7 @@ public interface CustomerClient {
 
 
 
-	 @RequestMapping(value = "/customer/{userId}", method = RequestMethod.GET)
+	 @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	 CustomerView getCustomerViewByUserId(@PathVariable("userId") String userId) ;
 	    
 
