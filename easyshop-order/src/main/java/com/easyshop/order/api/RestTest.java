@@ -5,6 +5,7 @@ import com.easyshop.order.clientlib.customer.CustomerClient;
 import com.easyshop.order.clientlib.customer.CustomerView;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,11 @@ public class RestTest {
    
     @RequestMapping(value = "/custview/{userId}", method = RequestMethod.GET)
     CustomerView getCustomerViewByUserId(@PathVariable String userId) {
-        return this.customerClient.getCustomerViewByUserId(userId);
+      CustomerView custview=	customerClient.getCustomerViewByUserId(userId);
+   
+      return custview;
+    
+    
     }
 
     

@@ -17,7 +17,9 @@ zuul:
     order:
       path: /api/order/**
       serviceId: order-service
-      
+    product:
+      path: /api/product/**
+      serviceId: product-service      
           
 eureka:
   client:
