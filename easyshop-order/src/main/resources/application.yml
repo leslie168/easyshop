@@ -1,0 +1,45 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: order-service
+    version: 1.0.0
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/easyshop
+    username: postgres
+    password: postgres
+
+  jpa:
+     hibernate:
+        ddl-auto : create-drop
+  
+myproperty: test  
+myyml:
+   servers:
+       - dev.bar.com
+       - foo.bar.com
+       
+myyml2:
+   sub : test123       
+
+eureka:   
+   instance:
+     preferIpAddress: true 
+
+---
+spring:
+  profiles: container
+  datasource:
+    url: jdbc:postgresql://${DB_PORT_5432_TCP_ADDR}:5432/easyshop
+        
+eureka:
+   profiles: container
+   client:
+      serviceUrl:
+          defaultZone: http://${EU_PORT_8761_TCP_ADDR}:8761/eureka/    
+   instance:
+     preferIpAddress: true 
+            
