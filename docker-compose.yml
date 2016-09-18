@@ -3,3 +3,12 @@ mongodb:
   ports:
     - "27017:27017"
   command: mongod --smallfiles
+postgres:
+  image: postgres
+  environment:
+    - DEBUG=false
+    - DB_USER=postgres
+    - DB_PASS=postgres
+    - DB_NAME=easyshop
+  ports:
+    - 5432:5432
