@@ -8,7 +8,17 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true
 
-
+security:
+  user:
+    password: password
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:9999/uaa/oauth/token
+      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
+      clientId: acme
+      clientSecret: acmesecret
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
 zuul:
   routes:
     customer:
