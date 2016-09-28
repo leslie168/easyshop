@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.easyshop.customer.dao.ContactRepository;
 import com.easyshop.customer.dao.CustomerRepository;
+import com.easyshop.customer.entity.Contact;
 import com.easyshop.customer.entity.Customer;
 
 
@@ -22,6 +24,9 @@ public class CustomerRestController {
 
     @Autowired
     private CustomerRepository customerRepository;
+    
+    @Autowired
+    private ContactRepository contactRepository;
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -32,6 +37,7 @@ public class CustomerRestController {
         return this.customerRepository.findByUserId(userId);
     }
     
+ 
     @RequestMapping("/uriinfo/{applicationName}")
     public String serviceInstancesByApplicationNameURI(
             @PathVariable String applicationName) {

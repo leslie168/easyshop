@@ -16,6 +16,21 @@ spring:
      hibernate:
         ddl-auto : create-drop
   
+security:
+     oauth2:
+         resource:
+            userInfoUri: http://localhost:9999/uaa/user
+
+feign:
+    oauth2:
+        enabled: true
+    hystrix:
+        enabled: false
+eureka:   
+   instance:
+     preferIpAddress: true 
+
+
 myproperty: test  
 myyml:
    servers:
@@ -25,9 +40,6 @@ myyml:
 myyml2:
    sub : test123       
 
-eureka:   
-   instance:
-     preferIpAddress: true 
 
 ---
 spring:

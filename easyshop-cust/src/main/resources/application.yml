@@ -18,6 +18,11 @@ spring:
 eureka: 
   instance:
      preferIpAddress: true
+     
+security:
+     oauth2:
+         resource:
+            userInfoUri: http://localhost:9999/uaa/user
             
 ---
 spring:

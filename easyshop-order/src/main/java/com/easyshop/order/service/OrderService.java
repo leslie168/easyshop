@@ -25,6 +25,7 @@ public class OrderService {
 	
     @Value("${myyml2.sub}")
     String value2;
+    
     private List<String> servers = new ArrayList<String>();
 
     @Autowired
