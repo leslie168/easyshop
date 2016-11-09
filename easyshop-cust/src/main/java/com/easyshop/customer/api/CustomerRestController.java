@@ -1,12 +1,14 @@
 package com.easyshop.customer.api;
 
 import java.net.InetAddress;
+import java.security.Principal;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import com.easyshop.customer.dao.ContactRepository;
 import com.easyshop.customer.dao.CustomerRepository;
 import com.easyshop.customer.entity.Contact;
 import com.easyshop.customer.entity.Customer;
+
 
 
 
@@ -31,8 +34,12 @@ public class CustomerRestController {
     @Autowired
     private DiscoveryClient discoveryClient;
     
+   // @Autowired
+  //  private org.springframework.security.core.context.SecurityContextHolder SecurityContextHolder;
+    
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    Customer getCustomerByUserId(@PathVariable String userId) {
+    Customer getCustomerByUserId(@PathVariable String userId,Authentication authentication) {
+   
     	
         return this.customerRepository.findByUserId(userId);
     }
